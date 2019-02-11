@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:11-alpine
+    volumes:
+      - ./.data/db:/var/lib/postgresql/data
+    environment:
+      - PGDATA=/var/lib/postgresql/data
+      - POSTGRES_PASSWORD=postgres
+
+  tuya-logger:
+    build: .
+    environment:
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_HOST=db
+      - PG_DATABASE=energy_monitor_logs
+      - PG_PORT=5432
+    depends_on:
+      - db

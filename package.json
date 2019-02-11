@@ -1,0 +1,23 @@
+{
+  "name": "solaredge-logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "solaredge_logger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arizz96/solaredge-logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arizz96/solaredge-logger/issues"
+  },
+  "homepage": "https://github.com/arizz96/solaredge-logger#readme",
+  "dependencies": {
+    "pg": "^7.8.0",
+    "strftime": "^0.10.0"
+  }
+}
