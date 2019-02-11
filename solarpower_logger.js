@@ -14,10 +14,9 @@ const base_url = process.env.BASE_URL + '/site/' + process.env.SITE_ID + '/power
 
 setInterval(function() {
   var endTime = new Date();
-  var startTime = endTime;
+  var startTime = new Date();
   startTime.setTime(startTime.getTime() - (15*60*1000));
   var url = base_url + '&startTime=' + strftime('%F %T', startTime) + '&endTime=' + strftime('%F %T', endTime);
-  console.log(url)
 
   https.get(url, (res) => {
     const { statusCode } = res;
@@ -53,7 +52,7 @@ setInterval(function() {
             created_at \
           ) VALUES($1, $2) RETURNING id';
 
-          var values = [parseFloat(latest_data.value) || 0, latest_data.created_at];
+          var values = [parseFloat(latest_data.value) || 0, latest_data.date];
 
           pool.query(text, values).then(insert_res => {
             console.log(insert_res.rows[0]);
